@@ -3,6 +3,7 @@ $( document ).ready(function() {
     var server_ip = "http://192.168.1.160";
     var goodGuyHistory = [];
     var badGuyHistory = [];
+    var phoneBooth_ip = "http://192.168.1.555"
     
     setInterval(getStatus, 2000);
     function getStatus() {
@@ -19,7 +20,14 @@ $( document ).ready(function() {
             }
         });
     }
-
+    setInterval(updatePhoneBooth,2000);
+    function updatePhoneBooth() {
+        console.log("Checking phone booth");
+        $.get(phoneBooth_ip, function(data) {
+            $("#phoneGood").html(data.good);
+            $("#phoneBad").html(data.bad);
+        });
+    }
     function displayRoundHistory() {
         $("#roundHistory").empty();
         var round = "";
@@ -64,6 +72,9 @@ $( document ).ready(function() {
     $("#reset").click(function(){
         $.get(server_ip + '/reset', function (data, textStatus, jqXHR) {  // success callback
                 alert('Command executed!');
+        } );
+        $.get(phoneBooth_ip + '/reset', function (data, textStatus, jqXHR) {  // success callback
+            alert('Command executed!');
         } );
     });
 
