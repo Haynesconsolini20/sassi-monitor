@@ -3,7 +3,7 @@ $( document ).ready(function() {
     var server_ip = "http://192.168.1.160";
     var goodGuyHistory = [];
     var badGuyHistory = [];
-    var phoneBooth_ip = "http://192.168.1.555"
+    var phoneBooth_ip = "http://192.168.1.140"
     
     setInterval(getStatus, 2000);
     function getStatus() {
@@ -24,8 +24,11 @@ $( document ).ready(function() {
     function updatePhoneBooth() {
         console.log("Checking phone booth");
         $.get(phoneBooth_ip, function(data) {
-            $("#phoneGood").html(data.good);
-            $("#phoneBad").html(data.bad);
+            console.log(data);
+            console.log(data.greenCount);
+            $("#phoneGood").html(data.greenCount);
+            $("#phoneBad").html(data.redCount);
+            $("#waitForReset").html(data.waitForReset);
         });
     }
     function displayRoundHistory() {

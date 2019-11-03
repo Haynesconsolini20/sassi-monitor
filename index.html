@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>SASSI Monitor</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.pink-green.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -45,9 +45,11 @@
         </button>
         <h3>Phone Booth</h3>
         <p>Agents: <span id="phoneGood"></span> &emsp; Double Agents: <span id="phoneBad"></span></p>
+        <p>Waiting for reset: <span id="waitForReset"></span></p>
         <br><br><p><b>Please note: No buttons pushed during the button pressing phase will work until after the buttons have been pressed.</b></p>
         <p><b>The system can only track round history from since it's been on, so make sure to keep it on the whole game.</b></p>
         <p><b>The SASSI and phone booth will both reset when the reset button is pressed.</b></p>
+
         <!-- Button pushes -->
         <div id="roundHistory" style="text-align: left"></div>
       </div>
